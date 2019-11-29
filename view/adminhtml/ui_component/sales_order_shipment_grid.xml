@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+            <action name="order_balikobot">
+                <settings>
+                    <url path="beecom_balikobot/shipment/balikobot"/>
+                    <type>order_balikobot</type>
+                    <label translate="true">Order Balikobot</label>
+                </settings>
+            </action>
+            <action name="labels_balikobot">
+                <settings>
+                    <url path="beecom_balikobot/shipment/labels"/>
+                    <type>labels_balikobot</type>
+                    <label translate="true">Get Balikobot Labels</label>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>

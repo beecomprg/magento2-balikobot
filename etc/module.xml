@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Beecom_Balikobot" setup_version="0.1.2">
+        <sequence>
+            <module name="Beecom_Core"/>
+            <module name="Beecom_Material"/>
+            <module name="Beecom_MatrixRate"/>
+        </sequence>
+    </module>
+</config>

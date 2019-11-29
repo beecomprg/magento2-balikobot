@@ -1,0 +1,26 @@
+{
+  "name": "beecomprg/module-balikobot",
+  "description": "Balikobot module for Magento 2",
+  "type": "magento2-module",
+  "version": "0.1.2",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vojta Esner",
+      "email": "vojta@beecom.io",
+      "homepage": "http://www.beecom.io"
+    }
+  ],
+  "require": {
+    "beecomprg/magento-2-module-core": "*",
+    "beecomprg/magento2-matrix-rate": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Beecom\\Balikobot\\": ""
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<?php if($block->getBalikobotType()):?>
+    <section class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?php /* @escapeNotVerified */ echo __('Balíkobot delivery') ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <?php if ($block->getBalikobotBranch()): ?>
+                <div>Branch ID: <?php echo $block->getBalikobotBranch() ?></div>
+            <?php endif; ?>
+            <div>Additional Info: <?php echo $block->getBalikobotAdditionalInfo() ?></div>
+        </div>
+    </section>
+<?php endif; ?>

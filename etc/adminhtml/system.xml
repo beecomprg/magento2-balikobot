@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Smile_Map admin configuration UI fields.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this module to newer
+ * versions in the future.
+ *
+ *
+ * @category  Smile
+ * @package   Smile\Map
+ * @author    Romain Ruaud <romain.ruaud@smile.fr>
+ * @copyright 2017 Smile
+ * @license   Open Software License ("OSL") v. 3.0
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <section id="balikobot" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Balíkobot</label>
+            <tab>beecom</tab>
+            <resource>Magento_Backend::balikobot</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="api_user" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API user</label>
+                </field>
+
+                <field id="api_key" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API key</label>
+                </field>
+
+                <field id="api_shop_id" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shop ID</label>
+                </field>
+
+                <field id="cron_enabled" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable auto shipment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="mapping_matrix_rates" translate="label" sortOrder="70" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Matrix rates Mapping</label>
+                    <frontend_model>Beecom\Balikobot\Block\Adminhtml\Form\Field\Balikobot</frontend_model>
+                    <backend_model>Beecom\Core\Model\System\Config\Backend\Serialized</backend_model>
+                </field>
+
+                <field id="mapping_countries" translate="label" sortOrder="70" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Countries Mapping</label>
+                    <frontend_model>Beecom\Balikobot\Block\Adminhtml\Form\Field\BalikobotCountries</frontend_model>
+                    <backend_model>Beecom\Core\Model\System\Config\Backend\Serialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

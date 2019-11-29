@@ -1,0 +1,8 @@
+<?php $branches = $block->getBranchesData(); ?>
+<div class="pa-4">
+    <select id="balikobot_select" name="branch_id" data-mage-init='{"select2":{}}'>
+        <?php foreach ($branches as $branch): ?>
+            <option value="<?= $branch['id']?>"><?= $branch['name'] ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>

@@ -1,0 +1,62 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<!-- ko if: (isVisible()) -->
+<div class="shipping-information">
+    <div class="ship-to v-card v-sheet theme--light elevation-2 white pa-2">
+        <div class="shipping-information-title">
+            <div class="layout align-center ma-0 py-2">
+                <div class="flex xs6 pa-0">
+                    <div data-bind="i18n: 'Ship To:'" class="summary-title font-weight-light text-uppercase pl-3"></div>
+                </div>
+                <div class="flex xs6 pa-0 text-xs-right">
+                    <button class="action action-edit v-btn v-btn--small primary--text v-btn--flat primary-button v-btn--outline theme--light" data-bind="click: back">
+                        <div class="v-btn__content">
+                            <span data-bind="i18n: 'edit'"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="shipping-information-content grey--text px-3 pb-2">
+            <!-- ko foreach: getRegion('ship-to') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+    </div>
+    <div class="pt-3">
+        <div class="ship-via v-card v-sheet theme--light elevation-2 white pa-2">
+            <div class="shipping-information-title">
+                <div class="layout align-center ma-0 pt-2">
+                    <div class="flex xs9 pa-0">
+                        <div data-bind="i18n: 'Shipping Method:'" class="summary-title font-weight-light text-uppercase pl-3"></div>
+                    </div>
+                    <div class="flex xs6 pa-0 text-xs-right">
+                        <button class="action action-edit v-btn v-btn--small primary--text primary-button v-btn--outline v-btn--flat theme--light" data-bind="click: backToShippingMethod">
+                            <div class="v-btn__content">
+                                <span data-bind="i18n: 'edit'"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="shipping-information-content grey--text px-3 pb-2">
+                <div role="list" class="v-list v-list--dense theme--light">
+                    <div role="listitem" class="totals">
+                        <div class="v-list__tile theme--light mark pa-0">
+                            <div class="v-list__tile__content grey--text" data-bind="text: getShippingMethodTitle()"></div>
+                        </div>
+                        <div class="v-list__tile theme--light mark pa-0">
+                            <div class="v-list__tile__content grey--text" data-bind="text: getDeliveryPoint()"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ko-->

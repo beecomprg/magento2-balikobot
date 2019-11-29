@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Checkout\Api\Data\ShippingInformationInterface">
+        <attribute code="balikobot_type" type="string" />
+        <attribute code="balikobot_branch" type="string" />
+        <attribute code="balikobot_additional_info" type="string" />
+    </extension_attributes>
+</config>
