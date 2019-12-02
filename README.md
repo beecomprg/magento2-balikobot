@@ -5,8 +5,7 @@
 
 > magento 2, magento, shipping, checkout
 
-![Balikobot Checkout Example](https://beecomers.atlassian.net/0c51e1d8-9c52-4bfa-8397-b55c05180b33#media-blob-url=true&id=7f60764c-835f-4e9c-aec8-c525d83fdeed&collection=contentId-670924801&contextId=670924801&mimeType=image%2Fgif&name=2019-10-29%2010.52.40.gif&size=529218&width=2440&height=1584
- "Balikobot Checkout Example")
+[![Balikobot Checkout Example](https://api.media.atlassian.com/file/7f60764c-835f-4e9c-aec8-c525d83fdeed/binary?token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NjU2MjdiYS00MzhjLTQzMzMtOTcxNi1jODI5ZWUzNjZiZTIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpmaWxlOjdmNjA3NjRjLTgzNWYtNGU5Yy1hZWM4LWM1MjVkODNmZGVlZCI6WyJyZWFkIl19LCJleHAiOjE1NzU0MDMwMDQsIm5iZiI6MTU3NTMyMDAyNH0.MNbqkEioVu3jtUnO4yRgmhwCOTDshZMY9JIwQ5JLnbw&client=565627ba-438c-4333-9716-c829ee366be2&name=2019-10-29%2010.52.40.gif)]()
 
 ---
 ## Documentation
