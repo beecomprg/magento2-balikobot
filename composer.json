@@ -13,7 +13,7 @@
   ],
   "require": {
     "beecomprg/magento-2-module-core": "*",
-    "beecomprg/magento2-matrix-rate": "*"
+    "beecomprg/module-matrixrate": "*"
   },
   "autoload": {
     "files": [
