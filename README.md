@@ -1,7 +1,7 @@
 
 # Magento 2 Balikobot Module
 
-> Easily filter shipping and payment methods combinations during checkout
+> Easily ship your orders using [Balikobot](https://www.balikobot.cz/)
 
 > magento 2, magento, shipping, checkout
 
