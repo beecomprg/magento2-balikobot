@@ -5,7 +5,7 @@
 
 > magento 2, magento, shipping, checkout, zasilkovna, ulozenka, geis, dpd
 
-[![Balikobot Checkout Example](https://api.media.atlassian.com/file/7f60764c-835f-4e9c-aec8-c525d83fdeed/binary?token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NjU2MjdiYS00MzhjLTQzMzMtOTcxNi1jODI5ZWUzNjZiZTIiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpmaWxlOjdmNjA3NjRjLTgzNWYtNGU5Yy1hZWM4LWM1MjVkODNmZGVlZCI6WyJyZWFkIl19LCJleHAiOjE1NzU0MDMwMDQsIm5iZiI6MTU3NTMyMDAyNH0.MNbqkEioVu3jtUnO4yRgmhwCOTDshZMY9JIwQ5JLnbw&client=565627ba-438c-4333-9716-c829ee366be2&name=2019-10-29%2010.52.40.gif)]()
+[![Balikobot Checkout Example](docs/2019-10-29%2010.52.40.gif)]()
 
 ---
 ## Documentation
