@@ -20,6 +20,7 @@ class GenerateShipment
     protected $logger;
     protected $shipmentLoader;
     private $shipmentValidator;
+    protected $registry;
 
     public function __construct(
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
@@ -31,6 +32,7 @@ class GenerateShipment
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \Psr\Log\LoggerInterface $logger,
         \Magento\Shipping\Controller\Adminhtml\Order\ShipmentLoader $shipmentLoader,
+        \Magento\Framework\Registry $registry,
         \Magento\Sales\Model\Order\Shipment\ShipmentValidatorInterface $shipmentValidator = null
     )
     {
@@ -45,6 +47,7 @@ class GenerateShipment
         $this->_configLoader = $this->_objectManager->get('Magento\Framework\ObjectManager\ConfigLoaderInterface');
         $this->logger = $logger;
         $this->shipmentLoader = $shipmentLoader;
+        $this->registry = $registry;
         $this->shipmentValidator = $shipmentValidator ?: \Magento\Framework\App\ObjectManager::getInstance()
             ->get(\Magento\Sales\Model\Order\Shipment\ShipmentValidatorInterface::class);
     }
@@ -77,13 +80,10 @@ class GenerateShipment
      */
     protected function getOrderCollection()
     {
-        $date = new \DateTime();
-        $customDate = $date->modify("-1 hour")->format('Y-m-d H:i:s');
-
         $searchCriteria = $this->searchCriteriaBuilder
             ->addFilter('status','pending','eq')
             ->addFilter('balikobot_type', null, 'neq')
-            ->addFilter('created_at', $customDate ,'gteq')
+            ->addFilter('state', 'new' ,'eq')
             ->addSortOrder($this->sortBuilder->setField('entity_id')
                 ->setDescendingDirection()->create())
             ->setPageSize(100)->setCurrentPage(1)->create();
@@ -120,6 +120,7 @@ class GenerateShipment
 
         $this->logger->info('Saving shipment');
         $this->_saveShipment($shipment);
+        $this->registry->unregister('current_shipment');
     }
 
     protected function createPackage($order)
