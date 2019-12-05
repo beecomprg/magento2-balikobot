@@ -2,7 +2,7 @@
   "name": "beecomprg/module-balikobot",
   "description": "Balikobot module for Magento 2",
   "type": "magento2-module",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "license": "MIT",
   "authors": [
     {
