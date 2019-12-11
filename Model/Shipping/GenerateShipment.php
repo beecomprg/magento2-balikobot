@@ -5,6 +5,7 @@ namespace Beecom\Balikobot\Model\Shipping;
 
 use Magento\Sales\Model\Order\Shipment\Validation\QuantityValidator;
 use Magento\Sales\Model\ValidatorResultInterface;
+use Magento\Store\Model\ScopeInterface;
 
 class GenerateShipment
 {
@@ -21,6 +22,7 @@ class GenerateShipment
     protected $shipmentLoader;
     private $shipmentValidator;
     protected $registry;
+    protected $scopeConfig;
 
     public function __construct(
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
@@ -33,6 +35,7 @@ class GenerateShipment
         \Psr\Log\LoggerInterface $logger,
         \Magento\Shipping\Controller\Adminhtml\Order\ShipmentLoader $shipmentLoader,
         \Magento\Framework\Registry $registry,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Sales\Model\Order\Shipment\ShipmentValidatorInterface $shipmentValidator = null
     )
     {
@@ -50,6 +53,7 @@ class GenerateShipment
         $this->registry = $registry;
         $this->shipmentValidator = $shipmentValidator ?: \Magento\Framework\App\ObjectManager::getInstance()
             ->get(\Magento\Sales\Model\Order\Shipment\ShipmentValidatorInterface::class);
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -67,8 +71,14 @@ class GenerateShipment
         /** @var \Magento\Sales\Api\Data\OrderInterface $order */
         foreach ($collection as $order) {
             if ($order->canShip()) {
-                $this->logger->info('Creating shipment for order: '.$order->getIncrementId());
-                $this->createShipment($order);
+                $this->logger->info('Creating shipment for order: ' . $order->getIncrementId());
+                try {
+                    $this->createShipment($order);
+                } catch (\InvalidArgumentException $exception) {
+                    $this->logger->error('Shipment for order: ' . $order->getIncrementId() . ' failed. Reason: ' . $exception->getMessage());
+                } catch (\Exception $exception) {
+                    $this->logger->error('Shipment for order: ' . $order->getIncrementId() . ' failed. Reason: ' . $exception->getMessage());
+                }
             }
         }
         $this->logger->info('Generating shipments finished ');
@@ -80,13 +90,25 @@ class GenerateShipment
      */
     protected function getOrderCollection()
     {
+        $date = new \DateTime();
+        $hours = $this->scopeConfig->getValue('balikobot/general/cron_order_older', ScopeInterface::SCOPE_STORE);
+        $hourText = 'hours';
+        if ($hours == 1) {
+            $hourText = 'hour';
+        }
+
+        $customDate = $date->modify("-" . $hours . " " . $hourText)->format('Y-m-d H:i:s');
+
         $searchCriteria = $this->searchCriteriaBuilder
-            ->addFilter('status','pending','eq')
-            ->addFilter('balikobot_type', null, 'neq')
-            ->addFilter('state', 'new' ,'eq')
-            ->addSortOrder($this->sortBuilder->setField('entity_id')
-                ->setDescendingDirection()->create())
-            ->setPageSize(100)->setCurrentPage(1)->create();
+            ->addFilter('balikobot_type',null,'neq')
+            ->addFilter('created_at', $customDate,'gteq')
+            ->addSortOrder(
+                $this->sortBuilder->setField('entity_id')
+                    ->setDescendingDirection()->create()
+            )
+            ->setPageSize(100)
+            ->setCurrentPage(1)
+            ->create();
 
         return $this->orderRepository->getList($searchCriteria);
     }
@@ -168,7 +190,7 @@ class GenerateShipment
     protected function logInAsAdmin()
     {
         $areaCode = 'adminhtml';
-        $username = 'vojta@beecom.io';
+        $username = $this->scopeConfig->getValue('balikobot/general/cron_admin_user', ScopeInterface::SCOPE_STORE);
 
         $this->request->setPathInfo('/admin');
 

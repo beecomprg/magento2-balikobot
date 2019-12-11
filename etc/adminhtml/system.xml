@@ -50,6 +50,16 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
+                <field id="cron_order_older" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Orders older than</label>
+                    <comment>Select orders order than X (in hours)</comment>
+                </field>
+
+                <field id="cron_admin_user" translate="label" type="text" sortOrder="62" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Run cron as</label>
+                    <comment>Cron needs to have admin user email to create shipment label</comment>
+                </field>
+
                 <field id="mapping_matrix_rates" translate="label" sortOrder="70" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Matrix rates Mapping</label>

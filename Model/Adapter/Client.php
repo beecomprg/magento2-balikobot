@@ -29,7 +29,7 @@ class Client {
      */
     const
         SHIPPER_CP = 'cp', /*< Česká pošta s.p. */
-        SHIPPER_SP = 'sp',
+        SHIPPER_SP = 'sp', /*< Slovenská pošta */
         SHIPPER_DPD = 'dpd', /*< Direct Parcel Distribution CZ s.r.o. */
         SHIPPER_GEIS = 'geis', /*< Geis CZ s.r.o. */
         SHIPPER_GLS = 'gls', /*< General Logistics Systems Czech Republic s.r.o. */
@@ -621,16 +621,25 @@ class Client {
 
         switch ($country) {
             case self::COUNTRY_CZECHIA:
-                if (!preg_match('/^\d{5}$/', $zip))
+                if (!preg_match('/^\d{5}$/', $zip)) {
                     throw new \InvalidArgumentException('Invalid zip code has been entered. Match XXXXX pattern.');
+                }
+                if (!preg_match('/^\+420\d{9}$/', $phone)) {
+                    throw new \InvalidArgumentException('Invalid phone has been entered. Match +420YYYYYYYYY pattern.');
+                }
+                break;
+            case self::COUNTRY_SLOVAKIA:
+                if (!preg_match('/^\d{5}$/', $zip)) {
+                    throw new \InvalidArgumentException('Invalid zip code has been entered. Match XXXXX pattern.');
+                }
+                if (!preg_match('/^\+421\d{9}$/', $phone)) {
+                    throw new \InvalidArgumentException('Invalid phone has been entered. Match +421YYYYYYYYY pattern.');
+                }
                 break;
 
             default:
                 throw new \UnexpectedValueException("Validation method is not implemented for $country country.");
         }
-
-        if (!preg_match('/^\+420\d{9}$/', $phone))
-            throw new \InvalidArgumentException('Invalid phone has been entered. Match +420YYYYYYYYY pattern.');
 
         $this->data['data']['rec_name'] = $name;
         $this->data['data']['rec_street'] = $street;
@@ -1032,6 +1041,14 @@ class Client {
             throw new \InvalidArgumentException('Invalid argument has been entered.');
 
         switch ($shipper) {
+            case self::SHIPPER_SP: return [
+                self::OPTION_PRICE,
+                self::OPTION_ORDER,
+                self::OPTION_SERVICES,
+                self::OPTION_WEIGHT,
+                self::OPTION_BRANCH
+            ];
+
             case self::SHIPPER_CP: return [
                 self::OPTION_PRICE,
                 self::OPTION_ORDER,
