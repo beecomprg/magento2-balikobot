@@ -6,6 +6,7 @@
             <general>
                 <enabled>0</enabled>
                 <cron_enabled>0</cron_enabled>
+                <api_shop_id>12</api_shop_id>
                 <cron_order_older>1</cron_order_older>
                 <cron_admin_user>user@admin.com</cron_admin_user>
             </general>

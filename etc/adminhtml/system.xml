@@ -41,10 +41,6 @@
                     <label>API key</label>
                 </field>
 
-                <field id="api_shop_id" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Shop ID</label>
-                </field>
-
                 <field id="cron_enabled" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable auto shipment</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
