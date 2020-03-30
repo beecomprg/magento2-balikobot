@@ -5,6 +5,7 @@
             <module name="Beecom_Core"/>
             <module name="Beecom_Material"/>
             <module name="Beecom_MatrixRate"/>
+            <module name="ScandiPWA_QuoteGraphQl" />
         </sequence>
     </module>
 </config>

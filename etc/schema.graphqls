@@ -1,0 +1,22 @@
+type Query {
+    branches(balikobot_type: String!, shipping_method: String!): Branches @resolver(class: "Beecom\\Balikobot\\Model\\Resolver\\Branch")
+}
+
+type Branches {
+    items: [Branch]
+}
+
+type Branch {
+    value: Int
+    label: String
+}
+
+input BalikobotType {
+    balikobot_branch: Int
+    balikobot_type: String
+    balikobot_additional_info: String
+}
+
+input SaveAddressInformation {
+    extension_attributes: BalikobotType
+}
