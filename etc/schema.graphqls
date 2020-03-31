@@ -11,6 +11,10 @@ type Branch {
     label: String
 }
 
+type ShippingMethod {
+    additionalComponent: String
+}
+
 input BalikobotType {
     balikobot_branch: Int
     balikobot_type: String
