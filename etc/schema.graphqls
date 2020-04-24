@@ -15,12 +15,8 @@ type ShippingMethod {
     additionalComponent: String
 }
 
-input BalikobotType {
+input ExtensionAttributes {
     balikobot_branch: Int
     balikobot_type: String
     balikobot_additional_info: String
-}
-
-input SaveAddressInformation {
-    extension_attributes: BalikobotType
 }

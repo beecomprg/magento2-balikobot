@@ -22,5 +22,4 @@
     </type>
     <preference for="Magento\Shipping\Model\Shipping\LabelGenerator" type="Beecom\Balikobot\Model\Shipping\LabelGenerator" />
     <preference for="ScandiPWA\QuoteGraphQl\Model\Resolver\EstimateShippingCosts" type="Beecom\Balikobot\Model\Resolver\EstimateShippingCosts" />
-    <preference for="ScandiPWA\QuoteGraphQl\Model\Resolver\SaveAddressInformation" type="Beecom\Balikobot\Model\Resolver\SaveAddressInformation" />
 </config>
