@@ -17,7 +17,8 @@ class AvailableDeliveryMethods extends \Magento\Framework\View\Element\Html\Sele
         'zasilkovna' => 'Zasilkovna',
         'cp' => 'Česká pošta',
         'ppl' => 'PPL',
-        'sp' => 'Slovenská pošta'
+        'sp' => 'Slovenská pošta',
+        'dpd' => 'DPD'
     ];
 
 
